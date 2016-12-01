@@ -21,6 +21,7 @@ Rules for today
 
 Solid principles
 ================
+[SOLID Principles from Wikipedia](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design))
 
 Single Responsiblity principle
 ------------------------------
@@ -34,12 +35,15 @@ Open closed principle
 
 Liskov Substituiton principle
 -----------------------------
-
-Dependency Inversion principle
-------------------------------
+Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program
 
 Interface Segregation principle
 -------------------------------
+Many client-specific interfaces are better than one general-purpose interface
+
+Dependency Inversion principle
+------------------------------
+one should “Depend upon Abstractions. Do not depend upon concretions
 
 FizzBuzz - Kata
 ===============
