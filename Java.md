@@ -51,6 +51,23 @@ public class Requirement implements Comparable<Requirement> {
         return new Requirement(this);
     }
 ```
+It is the used in the following way.
+```java
+    public class testMethod {
+        /*
+        * Returns a copy of the TestResult List
+        */
+
+        private List<TestResult> copyTestResult (List<TestResult> resultList) {
+            List<TestResult> copyOfResultList = new ArrayList<TestResult>(resultList.size());
+            for (TestResult reqItem : resultList) {
+                copyOfResultList.add(reqItem.clone());
+            }
+            return copyOfResultList;
+        }
+    }
+```
+
 
 Things to check
 ---------------
