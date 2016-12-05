@@ -7,7 +7,8 @@ Requirement database in excel
 -----------------------------
 The structure in the Excel database is quite general. It has a naming convention for the columns that
 is applicable for all the test cases. However, if the test environment needs to add a new requirement the database
-will need to be expanded with the corresponding number of columns.
+will need to be expanded with the corresponding number of columns. The number of columns will then vary depending on the 
+number of requirements of the test case.
 One row contains all the requirements for the test case.
 
 
