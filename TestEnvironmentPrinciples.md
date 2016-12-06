@@ -40,3 +40,12 @@ Below is an example of how it could look in the Insight database.
 | Test1_TU3  | -16  | 0.1  | EcN0     | BLER     | A          |
 | Test2_TU3  | -12  | 0.1  | EcN0     | BLER     | A          |
 
+Meta data store in Insight
+--------------------------
+
+To be able to compare the different results from the different test environments (BPV Light and BPV node) there is another data store called
+meta data store. It contains the overal information from the different test environments. 
+
+| Commit     | HW_DUT       | failed                | passed             |job_id  | job_name                 | job_status          | test_env          | total              | UP/SW_DUT |
+|------------|--------------|-----------------------|--------------------|--------|--------------------------|---------------------|-------------------|--------------------|-----------|
+| #git hash  | HW_DUT_name  | #of failed test cases | #passed test cases | job_id | Daily BPV/Daily BPV node | error/failed/passed | TestEnv1/TestEnv2 | totalNumberOfTests | CXP-nr    |
