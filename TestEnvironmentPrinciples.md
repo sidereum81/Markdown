@@ -42,6 +42,25 @@ Below is an example of how it could look in the Insight database.
 
 Result database in Insight
 --------------------------
+The result database has one row for every measurement point.
+
+**Parameter explanation**
+- JobId      : An ID for a measurement serie of test cases.
+- Evaluate   : Used for seperating between measurement values and interpolated results.
+- FinalVerdict : If all measurement points are passed, then FinalVerdict = PASS.
+- MeasId     : Seperates different types of measurements, for instance BLER_A, BER_B, BLER_DPCCH, interpolated values etc
+- MeasTime   : The measurement time for each measurement point
+- SetValueX  : The value set in the instrument. Should not differ alot from MeasValueX
+- MeasValueX : Measured value on X-axis, usually measured in instrument (EcN0)
+- MeasValueY : Measvalue on Y-axis, usually calculated through the test environment
+- ReqX       : The requriement on X-axis, specified in CRS
+- ReqY       : The requriement on Y-axis, specified in CRS
+- ScaleTypeY : Y-axis can be represented in Logarithmic scale and Linear scale, this tells the Dashboard what scale to SetValueX
+- TestCaseStatus : If measurement is within requirement, then PASS. If measuremnt has passed requirement then N/A, used for characterization.
+- Tester     : Signum of the tester
+- 
+
+
 
 | NameTag  | CalibaritionFile   | CommitHash | DUType      | Evaluate         | FinalVerdigt           | InstrumentInformation | JobId   | MeasId | MeasTime       | MeasTypeX | MeasTypeY | MeasValueX | MeasValueY | 
 |----------|--------------------|------------|-------------|------------------|------------------------|-----------------------|---------|--------|----------------|-----------|-----------|------------|------------|
