@@ -17,6 +17,7 @@ Programming training and guides
 
 Tools
 =====
+- [GitHub Pages](https://pages.github.com/)
 - [RethinkDb](https://rethinkdb.com/faq/)
 - [http://ohshitgit.com/](http://ohshitgit.com/)
 - [http://gnuplot.sourceforge.net/](http://gnuplot.sourceforge.net/)
