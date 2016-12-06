@@ -40,6 +40,19 @@ Below is an example of how it could look in the Insight database.
 | Test1_TU3  | -16  | 0.1  | EcN0     | BLER     | A          |
 | Test2_TU3  | -12  | 0.1  | EcN0     | BLER     | A          |
 
+Result database in Insight
+--------------------------
+
+| NameTag  | CalibaritionFile   | CommitHash | DUType      | Evaluate         | FinalVerdigt           | InstrumentInformation | JobId   | MeasId | MeasTime       | MeasTypeX | MeasTypeY | MeasValueX | MeasValueY | 
+|----------|--------------------|------------|-------------|------------------|------------------------|-----------------------|---------|--------|----------------|-----------|-----------|------------|------------|
+| name1    | Path for cal. file | Git hash   | DU version  | INTERPOLATE/MEAS | PASS/FAIL/INCONCLUSIVE | All HW info           | JobId # | 1-5    | Time/measPoint | EcN0/EbN0 | BLER/BER  | Value      | Value      |
+
+
+| RU_Type | ReqVersion  | ReqX           | ReqY           | ScaleTypeY | SetValueX  | TestCaseParametersInfo | TestCaseStatus | Tester | UP        |
+|---------|-------------|----------------|----------------|------------|------------|------------------------|----------------|--------|-----------|
+| -       | CRS Version | RequirementOnX | RequirementOnY | LOG/LIN    | MeasValueX | TestSuite              | PASS/FAIL/NA   | Signum | UPVersion |
+
+
 Meta data store in Insight
 --------------------------
 
@@ -49,3 +62,5 @@ meta data store. It contains the overal information from the different test envi
 | Commit     | HW_DUT       | failed                | passed             |job_id  | job_name                 | job_status          | test_env          | total              | UP/SW_DUT |
 |------------|--------------|-----------------------|--------------------|--------|--------------------------|---------------------|-------------------|--------------------|-----------|
 | #git hash  | HW_DUT_name  | #of failed test cases | #passed test cases | job_id | Daily BPV/Daily BPV node | error/failed/passed | TestEnv1/TestEnv2 | totalNumberOfTests | CXP-nr    |
+
+
