@@ -58,9 +58,6 @@ The result database has one row for every measurement point.
 - ScaleTypeY : Y-axis can be represented in Logarithmic scale and Linear scale, this tells the Dashboard what scale to SetValueX
 - TestCaseStatus : If measurement is within requirement, then PASS. If measuremnt has passed requirement then N/A, used for characterization.
 - Tester     : Signum of the tester
-- 
-
-
 
 | NameTag  | CalibaritionFile   | CommitHash | DUType      | Evaluate         | FinalVerdigt           | InstrumentInformation | JobId   | MeasId | MeasTime       | MeasTypeX | MeasTypeY | MeasValueX | MeasValueY | 
 |----------|--------------------|------------|-------------|------------------|------------------------|-----------------------|---------|--------|----------------|-----------|-----------|------------|------------|
