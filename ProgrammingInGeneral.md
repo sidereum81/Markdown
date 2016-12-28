@@ -45,5 +45,3 @@ Podds
 - Software Engineering Daily
 - Hanselminutes
 - Programming Throwdown
-
-

@@ -178,3 +178,5 @@ Things to check
 - Visual Studio Code
 - Reflections
 - Defensive copies
+- java.lang.Class
+- java.lang.Object
