@@ -1,5 +1,6 @@
 Programming training and guides
 ===============================
+- [http://codereview.stackexchange.com] (http://codereview.stackexchange.com)
 - [https://jlordiales.me/posts/](https://jlordiales.me/posts/)
 - [https://learnxinyminutes.com/](https://learnxinyminutes.com/)
 - [fundamental-laws-of-software-development](http://www.exceptionnotfound.net/fundamental-laws-of-software-development/)
