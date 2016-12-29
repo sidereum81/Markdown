@@ -172,11 +172,19 @@ Since it is never changed it is thread safe, whenever in time a thread access th
 ### Defensive copying ###
 When sharing an object the user will get a copy of the object so that any unintentional modification of the object is prevented.
 
+Enum
+----
+*Below is a merely re write of [oracel docs](https://docs.oracle.com/javase/tutorial/java/javaOO/enum.html)* </BR>
+Enum is powerfull in Java. They can be used to set both a constant a value, the values are passed automaticly to the constructor when the constant is created.
+Java requires that the constants to be defined before any fields or methods.
+
+
+
 Things to check
 ---------------
 - Lambda functions in Java
-- Visual Studio Code
 - Reflections
-- Defensive copies
 - java.lang.Class
 - java.lang.Object
+- ~~Defensive copies~~
+- ~~Visual Studio Code~~
