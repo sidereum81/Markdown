@@ -15,7 +15,7 @@ Programming training and guides
 - [https://sourcemaking.com/antipatterns](https://sourcemaking.com/antipatterns)
 - [http://gameprogrammingpatterns.com/design-patterns-revisited.html](http://gameprogrammingpatterns.com/design-patterns-revisited.html)
 - [Design Pattern videos](https://www.youtube.com/watch?v=vNHpsC5ng_E&amp;list=PLF206E906175C7E07)
-
+- [Ruby tutorials] (https://developer.rackspace.com/blog/how-i-learned-ruby-on-rails/)
 Tools
 =====
 - [GitHub Pages](https://pages.github.com/)
