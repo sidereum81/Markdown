@@ -17,6 +17,7 @@ The storage driver is responsible for both the image layers and the writable con
 Docker commands
 ===============
 docker run -t -i ubuntu  --- *run an ubuntu image with interactive CLI* 
+sudo restart docker
 
 Docker installation
 ===================
