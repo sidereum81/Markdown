@@ -43,4 +43,21 @@ Cgroups is a kernel feature.
 With Cgroups linux can allocate resources to different processes. Cgroups has an hierchial structure, but unlike the 
 process tructure the Cgroups can have independent and separate hierarchies of cgroups.
 
+Troubleshooting
+===============
+When running images at work they did not have access to the internet, through Virtualbox and Ubuntu. 
+The problem was that the docker images used the wrong DNS server.
 
+The solution is to identify the DNS server used on host (Ubuntu) and add it to the docker configuration file
+*/etc/docker/daemon.json*. If it does not exit, simply create it. Add the line below.
+
+```json
+{
+    "dns": ["10.0.0.6", "8.8.8.8"]
+}
+```
+Restarte the docker server:
+*sudo service docker restart*
+
+Identify the hosts DNS server:
+nmcli device show <interfacename> | grep IP4.DNS
