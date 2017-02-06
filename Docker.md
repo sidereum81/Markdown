@@ -23,3 +23,23 @@ Docker installation
 ===================
 
 [Docker post install guide](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
+
+Docker under the hood
+=====================
+How docker works in Linux
+
+Namespaces
+----------
+Namespace is a kernel feature.
+With Namespaces Linux enables separation between processes in Linux. PID with namespace isolation does not anything
+about the parent PID.
+
+[A good explanation of namespaces](https://www.toptal.com/linux/separation-anxiety-isolating-your-system-with-linux-namespaces)
+
+Cgroups
+-------
+Cgroups is a kernel feature.
+With Cgroups linux can allocate resources to different processes. Cgroups has an hierchial structure, but unlike the 
+process tructure the Cgroups can have independent and separate hierarchies of cgroups.
+
+
