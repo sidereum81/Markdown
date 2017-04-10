@@ -9,3 +9,7 @@ shlex.split (shlex.split(command)) is used to split the command in a shell like 
 
 subprocess.Popen is used to run a command in console
 [https://docs.python.org/2/library/subprocess.html](https://docs.python.org/2/library/subprocess.html)
+
+Error handling
+--------------
+[https://docs.python.org/2/tutorial/errors.html](https://docs.python.org/2/tutorial/errors.html)
