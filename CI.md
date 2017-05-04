@@ -17,3 +17,4 @@ Continuous Integration/Deliviery articles
 -----------------------------------------
 https://martinfowler.com/bliki/DeploymentPipeline.html
 https://martinfowler.com/bliki/ContinuousDelivery.html
+https://highops.com/insights/continuous-delivery-pipelines-gocd-vs-jenkins/
