@@ -17,8 +17,11 @@ The storage driver is responsible for both the image layers and the writable con
 Docker commands
 ===============
 docker run -t -i ubuntu  --- *run an ubuntu image with interactive CLI* 
+docker run -it --rm alpine /bin/ash
 docker run --net=host -ti ubuntu
 sudo restart docker
+
+
 
 Docker installation
 ===================
@@ -61,3 +64,19 @@ Restarte the docker server:
 
 Identify the hosts DNS server:
 nmcli device show <interfacename> | grep IP4.DNS
+
+Behind a proxy server
+---------------------
+
+Alpine Linux
+apt package will not work behind proxy, just run the command below to fix it.
+export http_proxy=http://10.203.0.1:5187/
+
+Ubuntu
+apt-get behind a proxy could need an update by adding 
+
+Acquire::http::Proxy "http://gotpr002vip.got.volvocars.net:83/";
+at /etc/apt/apt.conf
+
+However it could still not work because of DNS-problem. Use nslookup to get the IP address instead of hyperlink.
+echo 'Acquire::http::Proxy "http://10.244.0.55:83/";' >> /etc/apt/apt.conf
