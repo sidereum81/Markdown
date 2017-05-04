@@ -12,3 +12,8 @@ Docs https://ci.openstack.org/zuul
 https://github.com/openstack/openstack-ci-puppet not working
 https://github.com/openstack/puppet-openstack-integration
 freenode #openstack-infra
+
+Continuous Integration/Deliviery articles
+-----------------------------------------
+https://martinfowler.com/bliki/DeploymentPipeline.html
+https://martinfowler.com/bliki/ContinuousDelivery.html
