@@ -32,6 +32,7 @@ https://martinfowler.com/bliki/ContinuousDelivery.html
 Complete CI chain
 -----------------
 https://blogs.rdoproject.org/7542/dive-into-zuul-gated-commit-system-2
+https://github.com/Combitech/codefarm
 
 
 Gearman plugin
