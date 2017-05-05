@@ -23,3 +23,7 @@ Continuous Integration/Deliviery articles
 https://martinfowler.com/bliki/DeploymentPipeline.html
 https://martinfowler.com/bliki/ContinuousDelivery.html
 https://highops.com/insights/continuous-delivery-pipelines-gocd-vs-jenkins/
+
+Complete CI chain
+-----------------
+https://blogs.rdoproject.org/7542/dive-into-zuul-gated-commit-system-2
