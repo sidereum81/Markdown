@@ -1,4 +1,50 @@
+ CI
+====
+
+Different CI tools are described and explored.
+
+
+Jenkins job builder and Zuul
+----------------------------
+
+**How to configure a job to be triggered by Zuul**
+
+https://docs.openstack.org/infra/jenkins-job-builder/zuul.html
+
+**Parameters expected by Zuul**
+
+https://docs.openstack.org/infra/zuul/launchers.html#zuul-parameters
+
+**Jenkins job builder - Triggers**
+
+https://docs.openstack.org/infra/jenkins-job-builder/triggers.html
+
+**Jenkins job builder -- definitions**
+
+https://docs.openstack.org/infra/jenkins-job-builder/definition.html
+
+*Raw config*
+It is possible, but not recommended, to use raw within a module to inject raw xml into the job configs.
+This is relevant in case there is no appropriate module for a Jenkins plugin or the module does not behave as you expect it to do.
+
+**Jenkins job builder -- Builders**
+
+https://docs.openstack.org/infra/jenkins-job-builder/builders.htmls
+
+
+Builders - actions that the job should do.
+Publishers - actions to do after build is complete
+
+**Jenkins job builder examples**
+
+https://github.com/arilivigni/jjb_demo
+
+Project are used to collect different of related jobs together.
+It is possible, but not recommended, to use raw within a module to inject raw xml into the job configs.
+This is relevant in case there is no appropriate module for a Jenkins plugin or the module does not behave as you expect it to do.
+
 Jfrog - Artifaktory
+https://www.ansible.com/it-automation
 
 Coverity - Lint 
 Valgrind
