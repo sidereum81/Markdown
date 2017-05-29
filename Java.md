@@ -178,6 +178,10 @@ Enum
 Enum is powerfull in Java. They can be used to set both a constant a value, the values are passed automaticly to the constructor when the constant is created.
 Java requires that the constants to be defined before any fields or methods.
 
+Classpath
+---------
+https://stackoverflow.com/questions/18093928/what-does-could-not-find-or-load-main-class-mean
+
 
 
 Things to check
