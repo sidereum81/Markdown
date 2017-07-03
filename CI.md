@@ -1,7 +1,72 @@
  CI
 ====
-
 Different CI tools are described and explored.
+
+Gerrit
+------
+
+A lot of configuraion and management are done in the CLI. For instance the project.config file is not possible to edit in 
+Gerrit gui until it has the verified label. 
+And to edit the project.config file you need to follow the steps below:
+
+
+mkdir tmp
+cd tmp
+git init
+git remote add origin ssh://admin@remote.site.com:29418/All-Projects
+git fetch origin refs/meta/config:refs/remotes/origin/meta/config
+git checkout meta/config
+
+remember to add 
+
+
+Jenkins
+-------
+env
+pwd
+ls -la
+export WORKSPACE_ROOT=$(pwd)
+
+
+## Initialize Repo and vendor/volvocars
+#
+# Important to initialize the repository with "repo init" "repo sync" instead of standard "git init", 
+# otherwise repo get confused (repo assumes .git-data is in .repo/project-objects/).
+# Reset the manifest-repo in case it was modified in a strange way from last commit
+cd .repo/manifests && git reset --hard origin/master || true
+cd ${WORKSPACE_ROOT}
+repo init -u ssh://gotsvl1415.got.volvocars.net:29421/manifest -b master
+repo sync vendor/volvocars
+
+## Download the commit the check
+#
+# TODO: Replace git clone with zuul-cloner once zuul is setup
+#GIT_SSH=/cm/zuul_stuff/ssh_wrapper.sh /cm/virtualenv_zuul/bin/zuul-cloner http://icup_android.gerrit.cm.volvocars.biz $ZUUL_PROJECT
+GIT_SSH=/cm/zuul_stuff/ssh_wrapper.sh /cm/virtualenv_zuul/bin/zuul-cloner $ZUUL_URL vendor/volvocars
+#zuul-cloner $ZUUL_URL vendor/volvocars
+#cd vendor/volvocars
+#git remote add gerrit ssh://gotsvl1415.got.volvocars.net:29421/vendor/volvocars  || true
+#git fetch --tags --progress gerrit ${GERRIT_REFSPEC}
+#git checkout ${GERRIT_PATCHSET_REVISION}
+
+## Update the manifests based on the templates and download all other repositories
+# First time this will take a very long time but subsequent downloads are incremental and faster
+#
+cd ${WORKSPACE_ROOT}
+python3 ./vendor/volvocars/tools/ci/shipit/bump.py . local
+
+## Build image
+#
+export DOCKER_HOST="tcp://127.0.0.1:2375" # Not required after reboot of gotsvl1416
+./vendor/volvocars/tools/ci/jenkins/commit_test.sh
+
+
+# Commented out because we are not building "flashfiles" for now
+#mkdir -p jenkins_stash
+#export dest_file_name="flashfiles-$(uuidgen).zip"
+#echo ${dest_file_name} > jenkins_stash/dest_file_name
+#scp out/target/product/ihu_abl_car/ihu_abl_car-flashfiles-eng.ihu.zip blade@10.246.65.176:/home/blade/jenkins_slave/${dest_file_name} '''
+
 
 
 Jenkins job builder and Zuul
@@ -46,7 +111,7 @@ This is relevant in case there is no appropriate module for a Jenkins plugin or 
 Jfrog - Artifaktory
 https://www.ansible.com/it-automation
 
-Coverity - Lint 
+Coverity - Lint
 Valgrind
 Jenkins job builder
 Behave
