@@ -22,6 +22,45 @@ remember to add
 
 Jenkins
 -------
+
+======================================
+ls -la
+export WORKSPACE_ROOT=$(pwd)
+
+## Initialize Repo and vendor/volvocars
+#
+# Important to initialize the repository with "repo init" "repo sync" instead of standard "git init", 
+# otherwise repo get confused (repo assumes .git-data is in .repo/project-objects/).
+# Reset the manifest-repo in case it was modified in a strange way from last commit
+cd .repo/manifests && git reset --hard origin/master || true
+cd ${WORKSPACE_ROOT}
+repo init -u ssh://gotsvl1415.got.volvocars.net:29421/manifest -b master
+repo sync vendor/volvocars
+
+## Download the commit to check
+#
+# zuul-cloner implicity uses other environment variables as well, such as ZUUL_REF. 
+GIT_SSH=/cm/zuul_stuff/ssh_wrapper.sh /cm/virtualenv_zuul/bin/zuul-cloner $ZUUL_URL vendor/volvocars
+
+## Update the manifests based on the templates and download all other repositories
+# First time this will take a very long time but subsequent downloads are incremental and faster
+#
+cd ${WORKSPACE_ROOT}
+python3 ./vendor/volvocars/tools/ci/shipit/bump.py . local
+
+## Build image
+#
+export DOCKER_HOST="tcp://127.0.0.1:2375" # Not required after reboot of gotsvl1416
+./vendor/volvocars/tools/ci/jenkins/commit_test.sh
+
+
+# Commented out because we are not building "flashfiles" for now
+#mkdir -p jenkins_stash
+#export dest_file_name="flashfiles-$(uuidgen).zip"
+#echo ${dest_file_name} > jenkins_stash/dest_file_name
+#scp out/target/product/ihu_abl_car/ihu_abl_car-flashfiles-eng.ihu.zip blade@10.246.65.176:/home/blade/jenkins_slave/${dest_file_name} '''
+======================================
+
 env
 pwd
 ls -la
@@ -66,7 +105,7 @@ export DOCKER_HOST="tcp://127.0.0.1:2375" # Not required after reboot of gotsvl1
 #export dest_file_name="flashfiles-$(uuidgen).zip"
 #echo ${dest_file_name} > jenkins_stash/dest_file_name
 #scp out/target/product/ihu_abl_car/ihu_abl_car-flashfiles-eng.ihu.zip blade@10.246.65.176:/home/blade/jenkins_slave/${dest_file_name} '''
-
+============================================================
 
 
 Jenkins job builder and Zuul
