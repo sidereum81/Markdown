@@ -111,6 +111,8 @@ export DOCKER_HOST="tcp://127.0.0.1:2375" # Not required after reboot of gotsvl1
 Jenkins job builder and Zuul
 ----------------------------
 
+https://jjasghar.github.io/blog/2016/01/03/getting-jenkins-and-jenkins-job-builder-running/
+
 **How to configure a job to be triggered by Zuul**
 
 https://docs.openstack.org/infra/jenkins-job-builder/zuul.html

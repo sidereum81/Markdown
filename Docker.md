@@ -46,6 +46,12 @@ Cgroups is a kernel feature.
 With Cgroups linux can allocate resources to different processes. Cgroups has an hierchial structure, but unlike the 
 process tructure the Cgroups can have independent and separate hierarchies of cgroups.
 
+Docker use cases
+================
+https://stackoverflow.com/questions/22907231/copying-files-from-host-to-docker-container
+
+
+
 Troubleshooting
 ===============
 When running images at work they did not have access to the internet, through Virtualbox and Ubuntu. 
@@ -64,6 +70,8 @@ Restarte the docker server:
 
 Identify the hosts DNS server:
 nmcli device show <interfacename> | grep IP4.DNS
+
+
 
 Behind a proxy server
 ---------------------
