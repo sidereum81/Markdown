@@ -28,7 +28,6 @@ export OUT_DIR_COMMON_BASE=/mnt/ramdisk/test
 source build/envsetup.sh
 lunch ihu_vcc-eng
 
-
 Results
 -------
 The google engineers suggested that we always use clean builds, even in the commit gate.

@@ -21,3 +21,12 @@ https://workaround.org/linuxtip/pipes
 
 
 sudo mount -t tmpfs -o size=200G tmpfs /mnt/ramdisk
+
+File permissions
+----------------
+https://www.linux.com/learn/understanding-linux-file-permissionss
+
+Lägga till su rättigheter
+sudo visudo
+
+zcat - packar up gz filer och visar inneållet samtidigt
