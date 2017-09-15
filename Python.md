@@ -54,6 +54,7 @@ import os
 from datetime import timedelta
 import subprocess
 import shlex
+import re
 
 class Experiment():
 
@@ -70,25 +71,51 @@ class Experiment():
 
     def getCpuLoad(self):
         print ("getCpuLoad")
+        regular_cpu_load = re.compile('.*load average:\s*([^\n\r]*)')        
         command = "uptime"
-        proc = subprocess.Popen(shlex.split(command), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
-        shell_response = proc.stdout.read()
-        load_average = shell_response.split( )
-        load_average2 = load_average[-5:]
-        load_average3 = b" ".join(load_average2)
-        print(load_average3)
+        shell_response = self.runCommand(command)
+        cpu_load = re.findall(regular_cpu_load, shell_response)[0].split( )
+        load_average_first_minute = cpu_load[0]
+        load_average_five_minutes = cpu_load[1]
+        load_average_fifteen_minutes = cpu_load[2] 
+
+        print("Load average minute " + load_average_first_minute)
+        print("Load average five minutes " + load_average_five_minutes)
+        print("Load average fifteen minutes " + load_average_fifteen_minutes)
+
+
+    def getCpuInfo(self):
+        print("getCpuInfo")
+        regular_model_name = re.compile('.*model name	:\s*([^\n\r]*)')
+        regular_cpu_cores = re.compile('.*cpu cores	:\s*([^\n\r]*)')
+        command = "cat /proc/cpuinfo"
+        shell_response = self.runCommand(command)
+        number_of_cores = re.findall(regular_cpu_cores, shell_response)[0]
+        model_name = re.findall(regular_model_name, shell_response)[0]
+        print("Cpu cores: " + number_of_cores)
+        print("model_name: " + model_name)
+
 
     def getMemStatus(self):
         print ("getMemStatus")
-        command = "cat /proc/meminfo"
-        proc = subprocess.Popen(shlex.split(command), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
-        shell_response = proc.stdout.read()
-        split_shell_response = shell_response.splitlines()
-        mem_status = split_shell_response[:2]
-        mem_status2 = b" ".join(mem_status)
-        print(mem_status2)
+        command = "free -h"
+        shell_response = self.runCommand(command)
+        regular = re.compile('.*Mem:\s*([^\n\r]*)')
+        memory = re.findall(regular, shell_response)
+        memory_list = memory[0].split( )
+        total_memory = memory_list[0]
+        used_memory = memory_list[1]
+        print("The total memory is: " + total_memory)
+        print("The used memory is: " + used_memory)
+
+
+    def runCommand(self, command : str):
+        shell_response = subprocess.check_output(shlex.split(command)).decode('utf-8')
+        return shell_response
         
+
 if __name__ == "__main__":
     Experiment().getUptime()
     Experiment().getCpuLoad()
     Experiment().getMemStatus()
+    Experiment().getCpuInfo()
